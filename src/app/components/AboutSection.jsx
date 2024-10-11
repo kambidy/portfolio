@@ -64,7 +64,7 @@ const AboutSection = () => {
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
         <Image src="/images/Ryan2.jpg" layout="responsive" width={250} height={350} alt="pic" className= "rounded-[10px]" />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
+          <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-secondary-600 mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
           As a full stack web developer, I have a deep love for making responsive and engaging websites. JavaScript, React, Redux, Node.js, Express, SQLite3, HTML, CSS, Git, and Tailwind CSS are just a few of the technologies I have practical expertise with. I'm a quick learner that is constantly keen to experiment with new technologies and expand my skill set. I appreciate solving problems, do well in group settings, and am eager to collaborate with others to create creative, superior applications.
           </p>
