@@ -36,7 +36,7 @@ return (
           <Link href="https://github.com/kambidy" target="_blank" rel="noopener noreferrer" passHref>
             <Image src={GithubIcon} alt="Github Icon" />
           </Link>
-          <Link href="https://linkedin.com/In/ryan-mulwa58312b263" target="_blank" rel="noopener noreferrer" passHref>
+          <Link href="https://www.linkedin.com/in/ryan-mulwa-58312b263/" target="_blank" rel="noopener noreferrer" passHref>
             <Image src={LinkedinIcon} alt="Linkedin Icon" />
           </Link>
         </div>
