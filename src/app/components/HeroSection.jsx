@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -45,8 +45,7 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            voluptuous.
+            Code is poetry; write it with clarity, and it will speak volumes.
           </p>
           <div>
             <Link
@@ -72,14 +71,22 @@ const HeroSection = () => {
           transition={{ duration: 0.5 }}
           className="col-span-4 place-self-center mt-4 lg:mt-0"
         >
-          <div className="bg-[#181818] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] relative">
+          <div className="bg-[#181818] w-[350px] h-[350px] lg:w-[350px] lg:h-[350px] relative rounded-full overflow-hidden">
             <Image
               src="/images/Ryan.png"
+	  	layout="responsive"
               alt="hero image"
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               width={300}
               height={300}
             />
+	    <style jsx>{`
+        .circle-image {
+          width: {300}px;
+          height: {300}px;
+          border-radius: 50%; // This creates the circular effect
+          overflow: hidden; // Ensures any overflow is hidden
+        }
+      `}</style>
           </div>
         </motion.div>
       </div>

@@ -4,42 +4,19 @@ import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
+import { useForm, ValidationError } from '@formspree/react';
+
 
 const EmailSection = () => {
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
+let emailSubmitted = false
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-    const JSONdata = JSON.stringify(data);
-   // const endpoint = "/api/send";
+ const [state, handleSubmit] = useForm("xlderqok");
+  if (state.succeeded) {
+     emailSubmitted = true;
+  }
 
-    // Form the request for sending data to the server.
-    const options = {
-      // The method is POST because we are sending data.
-      method: "POST",
-      // Tell the server we're sending JSON.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
-    };
 
-//    const response = await fetch(endpoint, options);
-  //  const resData = await response.json();
-
-   // if (response.status === 200) {
-      console.log("Message sent.");
-      setEmailSubmitted(true);
-    //}
-  };
-
-  return (
+return (
     <section
       id="contact"
       className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative"
@@ -56,10 +33,10 @@ const EmailSection = () => {
           try my best to get back to you!
         </p>
         <div className="socials flex flex-row gap-2">
-          <Link href="github.com">
+          <Link href="https://github.com/kambidy" target="_blank" rel="noopener noreferrer" passHref>
             <Image src={GithubIcon} alt="Github Icon" />
           </Link>
-          <Link href="linkedin.com">
+          <Link href="https://linkedin.com/In/ryan-mulwa58312b263" target="_blank" rel="noopener noreferrer" passHref>
             <Image src={LinkedinIcon} alt="Linkedin Icon" />
           </Link>
         </div>
@@ -86,22 +63,12 @@ const EmailSection = () => {
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder="jacob@google.com"
               />
-            </div>
-            <div className="mb-6">
-              <label
-                htmlFor="subject"
-                className="text-white block text-sm mb-2 font-medium"
-              >
-                Subject
-              </label>
-              <input
-                name="subject"
-                type="text"
-                id="subject"
-                required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="Just saying hi"
-              />
+		<ValidationError 
+        prefix="Email" 
+        field="email"
+        errors={state.errors}
+      />
+
             </div>
             <div className="mb-6">
               <label
@@ -116,15 +83,22 @@ const EmailSection = () => {
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder="Let's talk about..."
               />
+		<ValidationError 
+        prefix="Message" 
+        field="message"
+        errors={state.errors}
+      />
+
             </div>
-            <button
-              type="submit"
-              className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
-            >
-              Send Message
-            </button>
+              
+      <button type="submit" disabled={state.submitting}
+		className="bg-primary-499 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+		>
+		send
+        </button>
           </form>
         )}
+      
       </div>
     </section>
   );
