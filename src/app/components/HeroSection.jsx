@@ -73,7 +73,7 @@ const HeroSection = () => {
         >
           <div className="bg-[#181818] w-[350px] h-[350px] lg:w-[350px] lg:h-[350px] relative rounded-full overflow-hidden">
             <Image
-              src="/images/Ryan.png"
+              src="/images/Ryan3.jpg"
 	  	layout="responsive"
               alt="hero image"
               width={300}
