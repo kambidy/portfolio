@@ -42,13 +42,13 @@ return (
           <Link href="https://www.linkedin.com/in/ryan-mulwa-58312b263/" target="_blank" rel="noopener noreferrer" passHref>
             <Image src={LinkedinIcon} alt="Linkedin Icon" />
           </Link>
-	<Link href="https://wa.me/0718206504" target="_blank" rel="noopener noreferrer" passHref>
+	<Link href="https://wa.me/+254718206504" target="_blank" rel="noopener noreferrer" passHref>
             <Image src={WhatsappIcon} alt="whatsapp Icon" />
           </Link>
 	<Link href="https://snapchat.com/add/aogiri.tree" target="_blank" rel="noopener noreferrer" passHref>
             <Image src={SnapchatIcon} alt="snapchat Icon" />
           </Link>
-	<Link  href="tell:+254718206504" target="_blank" rel="noopener noreferrer" passHref>
+	<Link  href="tel:+254718206504" target="_blank" rel="noopener noreferrer" passHref>
             <Image src={PhoneIcon} alt="phone Icon" />
           </Link>
         </div>
