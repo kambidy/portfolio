@@ -2,6 +2,21 @@
 import React, { useTransition, useState } from "react";
 import Image from "next/legacy/image";
 import TabButton from "./TabButton";
+import Link from "next/link";
+
+const handleDownload = () => {
+    // Set the file URL (make sure the file is in the public directory)
+    const fileUrl = "/images/cert.jpg"; // Adjust the path to your file location
+
+    // Create an anchor element and trigger the download
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.setAttribute('download', 'RyanCertificate01.jpg'); // Specify the downloaded file name
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link); // Clean up after download is triggered
+  };
+
 
 const TAB_DATA = [
   {
@@ -47,10 +62,29 @@ const TAB_DATA = [
       </ul>
     ),
   },
+{
+    title: "Certificates",
+    id: "certificates",
+    content: (
+      <ul className="list-disc pl-2">
+        <Image src="/images/cert.jpg" layout="responsive" width={80} height={40} alt="pic" className= "rounded-[10px]" />
+	    <Link
+		onClick={handleDownload}
+              href="/"
+              className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-sky-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
+            >
+              <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
+               Download Certificate
+              </span>
+            </Link>
+
+      </ul>
+    ),
+  },
 ];
 
 const AboutSection = () => {
-  const [tab, setTab] = useState("skills");
+const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
@@ -89,6 +123,14 @@ const AboutSection = () => {
             >
               {" "}
               Certifications{" "}
+            </TabButton>
+		<TabButton
+              selectTab={() => handleTabChange("certificates")}
+              active={tab === "certificates"}
+	  	className="from-sky-500 to-secondary-500"
+            >
+              {" "}
+              Certificates{" "}
             </TabButton>
           </div>
           <div className="mt-8">
