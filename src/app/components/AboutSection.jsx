@@ -19,7 +19,25 @@ const handleDownload = () => {
 
 
 const TAB_DATA = [
-  {
+ {
+    title: "Certificates",
+    id: "certificates",
+    content: (
+      <ul className="list-disc pl-2">
+        <Image src="/images/cert.jpg" layout="responsive" width={80} height={40} alt="pic" className= "rounded-[10px]" />
+	    <Link
+		onClick={handleDownload}
+              href="/"
+              className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-sky-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
+            >
+              <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
+               Download Certificate
+              </span>
+            </Link>
+
+      </ul>
+    ),
+  }, {
     title: "Skills",
     id: "skills",
     content: (
@@ -62,29 +80,11 @@ const TAB_DATA = [
       </ul>
     ),
   },
-{
-    title: "Certificates",
-    id: "certificates",
-    content: (
-      <ul className="list-disc pl-2">
-        <Image src="/images/cert.jpg" layout="responsive" width={80} height={40} alt="pic" className= "rounded-[10px]" />
-	    <Link
-		onClick={handleDownload}
-              href="/"
-              className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-sky-500 to-secondary-500 hover:bg-slate-800 text-white mt-3"
-            >
-              <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
-               Download Certificate
-              </span>
-            </Link>
 
-      </ul>
-    ),
-  },
 ];
 
 const AboutSection = () => {
-const [tab, setTab] = useState("skills");
+const [tab, setTab] = useState("certificates");
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id) => {
@@ -103,7 +103,15 @@ const [tab, setTab] = useState("skills");
           As a full stack web developer, I have a deep love for making responsive and engaging websites. JavaScript, React, Redux, Node.js, Express, SQLite3, HTML, CSS, Git, and Tailwind CSS are just a few of the technologies I have practical expertise with. I'm a quick learner that is constantly keen to experiment with new technologies and expand my skill set. I appreciate solving problems, do well in group settings, and am eager to collaborate with others to create creative, superior applications.
           </p>
           <div className="flex flex-row justify-start mt-8">
-            <TabButton
+	<TabButton
+              selectTab={() => handleTabChange("certificates")}
+              active={tab === "certificates"}
+	  	className="from-sky-500 to-secondary-500"
+            >
+              {" "}
+              Certificates{" "}
+            </TabButton>
+	<TabButton
               selectTab={() => handleTabChange("skills")}
               active={tab === "skills"}
             >
@@ -123,16 +131,9 @@ const [tab, setTab] = useState("skills");
             >
               {" "}
               Certifications{" "}
-            </TabButton>
-		<TabButton
-              selectTab={() => handleTabChange("certificates")}
-              active={tab === "certificates"}
-	  	className="from-sky-500 to-secondary-500"
-            >
-              {" "}
-              Certificates{" "}
-            </TabButton>
-          </div>
+
+             </TabButton>
+                     </div>
           <div className="mt-8">
             {TAB_DATA.find((t) => t.id === tab).content}
           </div>
