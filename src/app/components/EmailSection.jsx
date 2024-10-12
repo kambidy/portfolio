@@ -1,7 +1,10 @@
 "use client";
 import React, { useState } from "react";
-import GithubIcon from "../../../public/github-icon.svg";
-import LinkedinIcon from "../../../public/linkedin-icon.svg";
+import GithubIcon from "../../../public/github-icon.png";
+import LinkedinIcon from "../../../public/linkedin-icon.png";
+import WhatsappIcon from "../../../public/whatsapp-icon.png";
+import SnapchatIcon from "../../../public/snapchat-logo_icon.png";
+import PhoneIcon from "../../../public/phone-icon.png";
 import Link from "next/link";
 import Image from "next/image";
 import { useForm, ValidationError } from '@formspree/react';
@@ -38,6 +41,15 @@ return (
           </Link>
           <Link href="https://www.linkedin.com/in/ryan-mulwa-58312b263/" target="_blank" rel="noopener noreferrer" passHref>
             <Image src={LinkedinIcon} alt="Linkedin Icon" />
+          </Link>
+	<Link href="https://wa.me/0718206504" target="_blank" rel="noopener noreferrer" passHref>
+            <Image src={WhatsappIcon} alt="whatsapp Icon" />
+          </Link>
+	<Link href="https://snapchat.com/add/aogiri.tree" target="_blank" rel="noopener noreferrer" passHref>
+            <Image src={SnapchatIcon} alt="snapchat Icon" />
+          </Link>
+	<Link  href="tell:+254718206504" target="_blank" rel="noopener noreferrer" passHref>
+            <Image src={PhoneIcon} alt="phone Icon" />
           </Link>
         </div>
       </div>
